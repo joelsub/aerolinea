@@ -7,7 +7,69 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Cartelera de Vuelos</h1>
+    <!-- <h1>Cartelera de Vuelos</h1> -->
+    <section class="hero">
+        <div class="navbar">
+           <div class="navbar-items">
+                <div class="logo">
+                    <img src="" alt="">
+                    <span>VUELING</span>
+                </div>
+
+                <ul>
+                    <li>Ofertas y destinos</li>
+                    <li>Mis viajes</li>
+                    <li>Centro de ayuda</li>
+                </ul>
+           </div>
+           <div class="navbar-access">
+                <span>Vueling Pass</span>
+                <span class="login-btn">Iniciar sesión</span>
+           </div>
+        </div>
+        <div class="destiny-form">
+            <span class="destiny-title">Descubre tu siguiente expriencia de vuelo</span>
+            <div class="form-container">
+                <div class="inputs">
+                    <div class="input-style">
+                        <label for="departure">Desde</label>
+                        <input type="text" id="from" placeholder="Partida">
+                    </div>
+
+                    <div class="input-style">
+                        <label for="destination">Destino</label>
+                        <input type="text" id="destination" placeholder="Destino">
+                    </div>
+    
+                    <div class="input-style">
+                        <label for="return">Partida</label>
+                        <input type="date" id="departure" placeholder="Fecha de regreso">
+                    </div>
+    
+                    <div class="input-style">
+                        <label for="return">Regreso</label>
+                        <input type="date" id="return" placeholder="Fecha de regreso">
+                    </div>
+    
+                    <div class="input-style">
+                        <label for="passengers">Pasajeros</label>
+                        <input type="number" id="passengers" placeholder="Número de pasajeros" min="1" max="10">
+                    </div>
+                </div>
+                <div class="filters">
+                    <div>
+                        <span>Filtrar:</span>
+                        <span class="tag">Primera clase</span>
+                        <span class="tag">Business</span>
+                        <span class="tag">Economy</span>
+                    </div>
+                    <button class="btn">Buscar vuelo</button>
+                </div>
+            </div>            
+        </div>
+    </section>
+
+
     <table>
         <thead>
             <tr>
