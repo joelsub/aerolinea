@@ -74,3 +74,36 @@ function getStateClass(estado){
 
 setInterval(updateTable, 2000);
 updateTable();
+
+
+document.getElementById('contactanos').addEventListener('click', function() {
+    document.getElementById('contactModal').style.display = 'block';
+});
+
+document.querySelector('.close-btn').addEventListener('click', function() {
+    document.getElementById('contactModal').style.display = 'none';
+});
+
+// Validación de formulario
+const form = document.getElementById('contactForm');
+const submitBtn = document.getElementById('submitBtn');
+const inputs = form.querySelectorAll('input, textarea');
+
+inputs.forEach(input => {
+    input.addEventListener('input', function() {
+        let allValid = true;
+        inputs.forEach(input => {
+            if (!input.checkValidity()) {
+                allValid = false;
+            }
+        });
+        submitBtn.disabled = !allValid;
+    });
+});
+
+// Cerrar el modal
+window.onclick = function(event) {
+    if (event.target == document.getElementById('contactModal')) {
+        document.getElementById('contactModal').style.display = 'none';
+    }
+}

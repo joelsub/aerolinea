@@ -11,72 +11,6 @@ p{
     color: #676767;
 }
 
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-    border-radius: 10px !important;
-    overflow: hidden;
-}
-
-
-th, td {
-    padding: 10px;
-    border: 1px solid #ddd;
-}
-
-th {
-    background-color: #383838;
-    color: white;
-}
-
-td {
-    text-align: center;
-}
-
-#loader-container {
-    width: 100%;
-    height: 10px;
-    background-color: #f3f3f3;
-    margin: 20px auto;
-    position: relative;
-    border-radius: 5px;
-    overflow: hidden !important;
-}
-
-#loader-bar {
-    width: 0%;
-    height: 100%;
-    background-color: #4CAF50;
-    transition: .2s ease-out;
-}
-
-/* estados  */
-.on-time {
-    color: #1ea94c;
-    font-weight: 500;
-}
-
-.cancelled {
-    color: #dd3f3f;
-    font-weight: 500;
-}
-
-.boarding {
-    color: #3f6cdd;
-    font-weight: 500;
-}
-
-.waiting {
-    color: #dd913f;
-    font-weight: 500;
-}
-
-.delayed {
-    color: #843fdd;
-    font-weight: 500;
-}
-
 .hero{
     height: 600px;
     background-color: #383838;
@@ -203,10 +137,15 @@ td {
     color: #ffffff;
     border-radius: 5px;
     transition: .3s ease;
+    font-size: .85rem;
 }
 .btn:hover{
     background-color: #9b9b9b;
     color: #383838;
+}
+.btn:disabled{
+    background-color: #aaaaaa;
+    color: #000000;
 }
 .container{
     padding: 2rem;

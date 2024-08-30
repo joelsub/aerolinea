@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cartelera de Vuelos</title>
+    <link rel="stylesheet" href="modal.css">
+    <link rel="stylesheet" href="table.css">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- <h1>Cartelera de Vuelos</h1> -->
     <section class="hero">
         <div class="navbar">
            <div class="navbar-items">
@@ -20,6 +21,7 @@
                     <li>Ofertas y destinos</li>
                     <li>Mis viajes</li>
                     <li>Centro de ayuda</li>
+                    <li id="contactanos">Contáctanos</li>
                 </ul>
            </div>
            <div class="navbar-access">
@@ -28,7 +30,7 @@
            </div>
         </div>
         <div class="destiny-form">
-            <span class="destiny-title">Descubre tu siguiente expriencia de vuelo</span>
+            <span class="destiny-title">Descubre tu siguiente experiencia de vuelo</span>
             <div class="form-container">
                 <div class="inputs">
                     <div class="input-style">
@@ -247,6 +249,37 @@
             <div id="loader-bar"></div>
         </div>
     </div>
+
+
+    <div id="contactModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <span class="title">Contáctanos</span>
+            <p>
+                Déjanos tus datos y nos pondremos en contacto contigo para resolver tus dudas
+            </p>
+            <form id="contactForm">
+                <div class="input-style">
+                    <label for="name">Nombre</label>
+                    <input type="text" id="name" required>
+                </div>
+                <div class="input-style">
+                    <label for="phone">Teléfono</label>
+                    <input type="number" id="phone" required>
+                </div>
+                <div class="input-style">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" required>
+                </div>
+                <div class="input-style">
+                    <label for="case">Cuéntanos tu caso</label>
+                    <textarea id="case" rows="4" required></textarea>
+                </div>
+                <button type="submit" id="submitBtn" class="btn" disabled>Enviar</button>
+            </form>
+        </div>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>
