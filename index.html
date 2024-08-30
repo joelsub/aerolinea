@@ -4,27 +4,319 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cartelera de Vuelos</title>
+    <link rel="stylesheet" href="modal.css">
+    <link rel="stylesheet" href="table.css">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Cartelera de Vuelos</h1>
-    <table>
-        <thead>
-            <tr>
-                <th>Vuelo</th>
-                <th>Destino</th>
-                <th>Hora</th>
-                <th>Estado</th>
-                <th>Puerta</th>
-            </tr>
-        </thead>
-        <tbody id="flight-table-body">
-            <!-- vuelos -->
-        </tbody>
-    </table>
-    <div id="loader-container">
-        <div id="loader-bar"></div>
+    <section class="hero">
+        <div class="navbar">
+           <div class="navbar-items">
+                <div class="logo">
+                    <img src="" alt="">
+                    <span>VUELING</span>
+                </div>
+
+                <ul>
+                    <li>Ofertas y destinos</li>
+                    <li>Mis viajes</li>
+                    <li>Centro de ayuda</li>
+                    <li id="contactanos">Contáctanos</li>
+                </ul>
+           </div>
+           <div class="navbar-access">
+                <span>Vueling Pass</span>
+                <span class="login-btn">Iniciar sesión</span>
+           </div>
+        </div>
+        <div class="destiny-form">
+            <span class="destiny-title">Descubre tu siguiente experiencia de vuelo</span>
+            <div class="form-container">
+                <div class="inputs">
+                    <div class="input-style">
+                        <label for="departure">Desde</label>
+                        <input type="text" id="from" placeholder="Partida">
+                    </div>
+
+                    <div class="input-style">
+                        <label for="destination">Destino</label>
+                        <input type="text" id="destination" placeholder="Destino">
+                    </div>
+    
+                    <div class="input-style">
+                        <label for="return">Partida</label>
+                        <input type="date" id="departure" placeholder="Fecha de regreso">
+                    </div>
+    
+                    <div class="input-style">
+                        <label for="return">Regreso</label>
+                        <input type="date" id="return" placeholder="Fecha de regreso">
+                    </div>
+    
+                    <div class="input-style">
+                        <label for="passengers">Pasajeros</label>
+                        <input type="number" id="passengers" placeholder="Número de pasajeros" min="1" max="10">
+                    </div>
+                </div>
+                <div class="filters">
+                    <div>
+                        <span>Filtrar:</span>
+                        <span class="tag">Primera clase</span>
+                        <span class="tag">Business</span>
+                        <span class="tag">Economy</span>
+                    </div>
+                    <button class="btn">Buscar vuelo</button>
+                </div>
+            </div>            
+        </div>
+    </section>
+
+    <div class="container">
+        <section class="explore">
+            <div>
+                <span class="title">Explora nuestras ofertas y vuelos low-cost</span>
+            <p>Explora los destinos en oferta, compra ahora y viaja hasta en 3 meses desde la fecha de pago</p>
+            </div>
+    
+            <div class="tags">
+                <div class="tag selected">Asia</div>
+                <div class="tag">Europa</div>
+                <div class="tag">América</div>
+                <div class="tag">Africa</div>
+                <div class="tag">Australia</div>
+            </div>
+
+            <!-- cards con los destinos promocionales  -->
+           <div class="destinations">
+                <div class="destination-card">
+                    <img src="./assets/destinations/tokyo.jpeg" alt="">
+                    <div class="destination-details">
+                        <div class="detail">
+                            <span class="destination-name">Tokio</span>
+                            <div class="destination-data">
+                                <div class="data">
+                                    <span>Mie, 6 Mar 2024</span>
+                                </div>
+                                <div class="data">
+                                    <span>Economy Class</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="detail">
+                            <span class="destination-name">$500</span>
+                            <small>Incluye tasas de embarque</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="destination-card">
+                    <img src="./assets/destinations/indonesia.jpeg" alt="">
+                    <div class="destination-details">
+                        <div class="detail">
+                            <span class="destination-name">Indonesia</span>
+                            <div class="destination-data">
+                                <div class="data">
+                                    <span>Mie, 6 Mar 2024</span>
+                                </div>
+                                <div class="data">
+                                    <span>Economy Class</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="detail">
+                            <span class="destination-name">$500</span>
+                            <small>Incluye tasas de embarque</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="destination-card">
+                    <img src="./assets/destinations/malasya.jpeg" alt="">
+                    <div class="destination-details">
+                        <div class="detail">
+                            <span class="destination-name">Malasya</span>
+                            <div class="destination-data">
+                                <div class="data">
+                                    <span>Mie, 6 Mar 2024</span>
+                                </div>
+                                <div class="data">
+                                    <span>Economy Class</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="detail">
+                            <span class="destination-name">$500</span>
+                            <small>Incluye tasas de embarque</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="destination-card">
+                    <img src="./assets/destinations/singapore.jpeg" alt="">
+                    <div class="destination-details">
+                        <div class="detail">
+                            <span class="destination-name">Singapur</span>
+                            <div class="destination-data">
+                                <div class="data">
+                                    <span>Mie, 6 Mar 2024</span>
+                                </div>
+                                <div class="data">
+                                    <span>Economy Class</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="detail">
+                            <span class="destination-name">$500</span>
+                            <small>Incluye tasas de embarque</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="destination-card">
+                    <img src="./assets/destinations/thailand.jpeg" alt="">
+                    <div class="destination-details">
+                        <div class="detail">
+                            <span class="destination-name">Tailandia</span>
+                            <div class="destination-data">
+                                <div class="data">
+                                    <span>Mie, 6 Mar 2024</span>
+                                </div>
+                                <div class="data">
+                                    <span>Economy Class</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="detail">
+                            <span class="destination-name">$500</span>
+                            <small>Incluye tasas de embarque</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="destination-card">
+                    <img src="./assets/destinations/china.jpeg" alt="">
+                    <div class="destination-details">
+                        <div class="detail">
+                            <span class="destination-name">China</span>
+                            <div class="destination-data">
+                                <div class="data">
+                                    <span>Mie, 6 Mar 2024</span>
+                                </div>
+                                <div class="data">
+                                    <span>Economy Class</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="detail">
+                            <span class="destination-name">$500</span>
+                            <small>Incluye tasas de embarque</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="destination-card">
+                    <img src="./assets/destinations/seul.jpeg" alt="">
+                    <div class="destination-details">
+                        <div class="detail">
+                            <span class="destination-name">Seul</span>
+                            <div class="destination-data">
+                                <div class="data">
+                                    <span>Mie, 6 Mar 2024</span>
+                                </div>
+                                <div class="data">
+                                    <span>Economy Class</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="detail">
+                            <span class="destination-name">$500</span>
+                            <small>Incluye tasas de embarque</small>
+                        </div>
+                    </div>
+                </div>
+           </div>
+        </section>
+    
+        <table>
+            <thead>
+                <tr>
+                    <th>Vuelo</th>
+                    <th>Destino</th>
+                    <th>Hora</th>
+                    <th>Estado</th>
+                    <th>Puerta</th>
+                </tr>
+            </thead>
+            <tbody id="flight-table-body">
+                <!-- vuelos -->
+            </tbody>
+        </table>
+        <div id="loader-container">
+            <div id="loader-bar"></div>
+        </div>
     </div>
+
+    <footer>
+        <div class="footer-desciption">
+            <div class="logo">
+                <img src="" alt="">
+                <span>VUELING</span>
+            </div>
+            <p>En Vueling estamos comprometidos con llevarte a los destinos más emocionantes alrededor del mundo. hacemos que cada viaje sea una experiencia inolvidable. Nuestro objetivo es ofrecerte comodidad, seguridad y el mejor servicio, desde el momento en que reservas hasta que llegas a tu destino.</p>
+        </div>
+
+        <ul>
+            <li><strong>Acerca de</strong></li>
+            <li>Sobre nosotros</li>
+            <li>Blog</li>
+            <li>Carreras</li>
+        </ul>
+
+        <ul>
+            <li><strong>Soporte</strong></li>
+            <li>Centro de ayuda</li>
+            <li>Contáctanos</li>
+            <li>Política de privacidad</li>
+        </ul>
+
+        <div>
+            <div class="input-style">
+                <label>Suscribete</label>
+                <div>
+                    <input type="text" placeholder="Ingrese su correo">
+                    <button class="suscribe">Suscribirse</button>
+                </div>
+            </div>
+
+            <div class="social-media">
+            </div>
+        </div>
+    </footer>
+
+
+    <div id="contactModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <span class="title">Contáctanos</span>
+            <p>
+                Déjanos tus datos y nos pondremos en contacto contigo para resolver tus dudas
+            </p>
+            <form id="contactForm">
+                <div class="input-style">
+                    <label for="name">Nombre</label>
+                    <input type="text" id="name" required>
+                </div>
+                <div class="input-style">
+                    <label for="phone">Teléfono</label>
+                    <input type="number" id="phone" required>
+                </div>
+                <div class="input-style">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" required>
+                </div>
+                <div class="input-style">
+                    <label for="case">Cuéntanos tu caso</label>
+                    <textarea id="case" rows="4" required></textarea>
+                </div>
+                <button type="submit" id="submitBtn" class="btn" disabled>Enviar</button>
+            </form>
+        </div>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>
