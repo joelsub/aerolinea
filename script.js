@@ -33,6 +33,79 @@ const flights = [
 
 let currentIndex = 0;
 
+
+// Obtener referencias a los elementos del formulario
+const formFields = document.querySelectorAll('#travelType, #from, #destination, #departure, #return, #passengers');
+const childrenCheck = document.getElementById('childrenCheck');
+const childrenAmount = document.getElementById('childrenAmount');
+const searchButton = document.querySelector('.btn[onclick="searchFlights()"]');
+
+// Función para verificar si todos los campos están completos y válidos
+function validateForm() {
+    let isValid = true;
+
+    // Verificar cada campo obligatorio
+    formFields.forEach(field => {
+        if (!field.value) {
+            isValid = false;
+        }
+    });
+
+    // verificar la cantidad de niños
+    if (childrenCheck.checked) {
+        if (!childrenAmount.value) {
+            isValid = false;
+        }
+    }
+
+    // no superar 10 pasajeros
+    const passengers = parseInt(document.getElementById('passengers').value, 10);
+    if (passengers > 10) {
+        isValid = false;
+    }
+
+    // verificar fechas
+    const departureDate = document.getElementById('departure').value;
+    const returnDate = document.getElementById('return').value;
+
+    if (departureDate && returnDate) {
+        const departure = new Date(departureDate);
+        const returnD = new Date(returnDate);
+        const timeDifference = returnD - departure;
+        const dayDifference = timeDifference / (1000 * 3600 * 24);
+
+        if (returnD <= departure) {
+            isValid = false;
+        }
+    }
+
+    // habilita boton para buscar vuelos
+    searchButton.disabled = !isValid;
+}
+
+document.getElementById('passengers').addEventListener('input', function() {
+    const maxPassengers = 10;
+    if (this.value > maxPassengers) {
+        alert(`No puedes seleccionar más de ${maxPassengers} pasajeros.`);
+        this.value = maxPassengers;
+    }
+});
+
+
+//  eventos para validar el formulario
+formFields.forEach(field => {
+    field.addEventListener('input', validateForm);
+});
+
+childrenCheck.addEventListener('change', function() {
+    toggleChildrenInput();
+    validateForm();
+});
+
+childrenAmount.addEventListener('input', validateForm);
+window.addEventListener('DOMContentLoaded', validateForm);
+
+
 function updateTable() {
     const tbody = document.getElementById('flight-table-body');
     tbody.innerHTML = '';
@@ -75,6 +148,178 @@ function getStateClass(estado){
 setInterval(updateTable, 2000);
 updateTable();
 
+function toggleChildrenInput() {
+    const childrenContainer = document.getElementById('childrenAmountContainer');
+    if (document.getElementById('childrenCheck').checked) {
+        childrenContainer.style.display = 'flex';
+    } else {
+        childrenContainer.style.display = 'none';
+    }
+}
+
+function validateReturnDate() {
+    const departureDate = new Date(document.getElementById('departure').value);
+    const returnDate = new Date(document.getElementById('return').value);
+
+    if (returnDate < departureDate) {
+        alert('La fecha de retorno no puede ser anterior a la fecha de ida');
+        document.getElementById('return').value = '';
+    }
+}
+
+document.getElementById('travelType').addEventListener('change', function() {
+    const destinationSelect = document.getElementById('destination');
+    destinationSelect.innerHTML = ''; // Limpiar opciones anteriores
+
+    if (this.value === 'local') {
+        // Añadir ciudades locales
+        destinationSelect.innerHTML = `
+            <option value="SCL">Santiago</option>
+            <option value="ANF">Antofagasta</option>
+            <option value="CJC">Calama</option>
+            <!-- Agrega otras ciudades de Chile con aeropuertos -->
+        `;
+    } else if (this.value === 'international') {
+        // Añadir destinos internacionales
+        destinationSelect.innerHTML = `
+            <option value="USA">Estados Unidos</option>
+            <option value="ESP">España</option>
+            <option value="JPN">Japón</option>
+            <!-- Agrega otros países internacionales -->
+        `;
+    }
+});
+
+// fechas mínimas en los input de fecha
+function setMinDates() {
+    const today = new Date().toISOString().split('T')[0];
+    document.getElementById('departure').setAttribute('min', today);
+    document.getElementById('return').setAttribute('min', today);
+}
+
+window.addEventListener('DOMContentLoaded', setMinDates);
+
+
+function validateReturnDate() {
+    const departureInput = document.getElementById('departure');
+    const returnInput = document.getElementById('return');
+    
+    const departureDate = new Date(departureInput.value);
+    const returnDate = new Date(returnInput.value);
+
+    // Verificar que ambas fechas estén seleccionadas
+    if (departureInput.value && returnInput.value) {
+        // Calcular la diferencia en días
+        const timeDifference = returnDate - departureDate;
+        const dayDifference = timeDifference / (1000 * 3600 * 24);
+
+        if (returnDate < departureDate) {
+            alert('La fecha de retorno no puede ser anterior a la fecha de ida.');
+            returnInput.value = '';
+        } else if (dayDifference < 1) {
+            alert('La fecha de retorno debe ser al menos un día después de la fecha de ida.');
+            returnInput.value = '';
+        }
+    }
+}
+
+
+function searchFlights() {
+    console.log('Buscando vuelos...');
+    const spinner = document.createElement('div');
+    spinner.className = 'spinner';
+    document.body.appendChild(spinner);
+
+    setTimeout(() => {
+        spinner.remove();
+        openModalWithResults(); 
+    }, 1000);
+}
+
+function openModalWithResults() {
+    const modal = document.createElement('div');
+    modal.className = 'modal';
+    modal.id = 'flightModal';
+    modal.innerHTML = `
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Vuelos acorde a tu búsqueda</h2>
+            <div class="flight-cards">
+                ${generateFlightCards()} 
+            </div>
+            <button class="btn" onclick="selectFlight()">Continuar con el vuelo</button>
+        </div>
+    `;
+    document.body.appendChild(modal);
+    modal.querySelector('.close-btn').addEventListener('click', function() {
+        modal.style.display = 'none';
+    });
+}
+
+// Tarjetas de los vuelos buscados
+function generateFlightCards() {
+    const departureDate = document.getElementById('departure').value;
+    const returnDate = document.getElementById('return').value;
+    const destinationSelected = document.getElementById('destination').options[document.getElementById('destination').selectedIndex].text;
+
+    const flightsData = [
+        // Vuelos de ejemplo
+        { price: '$500', imageUrl: './assets/destinations/tokyo.jpeg', brand: 'Latam Airlines',class: 'Economy' },
+        { price: '$450', imageUrl: './assets/destinations/singapore.jpeg', brand: 'JetSmart',class: 'Business' },
+        { price: '$700', imageUrl: './assets/destinations/indonesia.jpeg', brand: 'Sky Airlines',class: 'First Class' },
+    ];
+
+    return flightsData.map(flight => `
+        <div class="destination-card flight-card" onclick="highlightCard(this)">
+            <img src="${flight.imageUrl}" alt="">
+            <div class="destination-details">
+                <div class="detail">
+                    <span class="destination-name">${destinationSelected}</span>
+                    <div class="destination-data">
+                        <div class="data">
+                            <span>Salida: ${departureDate}</span>
+                        </div>
+                        <div class="data">
+                            <span>Regreso: ${returnDate}</span>
+                        </div>
+                        <div class="data">
+                            <span>${flight.brand}, ${flight.class}</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="detail">
+                    <span class="destination-name">${flight.price}</span>
+                    <small>Incluye tasas de embarque</small>
+                </div>
+            </div>
+        </div>
+    `).join('');
+}
+
+
+function highlightCard(cardElement) {
+    document.querySelectorAll('.flight-card').forEach(card => {
+        card.classList.remove('selected');
+    });
+    cardElement.classList.add('selected');
+}
+
+function selectFlight() {
+    const selectedCard = document.querySelector('.flight-card.selected');
+    if (selectedCard) {
+        alert(`Pronto podrás continuar con tu vuelo seleccionado. ¡Buen viaje!`);
+        const modal = document.getElementById('flightModal');
+        if (modal) {
+            modal.style.display = 'none';
+        }
+
+    } else {
+        alert('Por favor, selecciona un vuelo.');
+    }
+}
+
+
+
 
 document.getElementById('contactanos').addEventListener('click', function() {
     document.getElementById('contactModal').style.display = 'block';
@@ -107,3 +352,4 @@ window.onclick = function(event) {
         document.getElementById('contactModal').style.display = 'none';
     }
 }
+

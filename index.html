@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cartelera de Vuelos</title>
     <link rel="stylesheet" href="modal.css">
+    <link rel="stylesheet" href="modal-flight.css">
     <link rel="stylesheet" href="table.css">
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -33,43 +34,82 @@
             <span class="destiny-title">Descubre tu siguiente experiencia de vuelo</span>
             <div class="form-container">
                 <div class="inputs">
+                    <!-- Tipo de viaje -->
                     <div class="input-style">
-                        <label for="departure">Desde</label>
-                        <input type="text" id="from" placeholder="Partida">
+                        <label for="travelType">Tipo de viaje</label>
+                        <select id="travelType">
+                            <option value="">Selecciona tipo de viaje</option>
+                            <option value="local">Local</option>
+                            <option value="international">Internacional</option>
+                        </select>
                     </div>
-
+            
+                    <!-- Ciudad de Origen -->
                     <div class="input-style">
-                        <label for="destination">Destino</label>
-                        <input type="text" id="destination" placeholder="Destino">
+                        <label for="from">Ciudad de Origen</label>
+                        <select id="from">
+                            <option value="">Selecciona ciudad</option>
+                            <option value="SCL">Santiago</option>
+                            <option value="ANF">Antofagasta</option>
+                            <option value="CJC">Calama</option>
+                            <!-- Agrega otras ciudades de Chile con aeropuertos -->
+                        </select>
                     </div>
-    
+            
+                    <!-- Ciudad de Destino -->
                     <div class="input-style">
-                        <label for="return">Partida</label>
-                        <input type="date" id="departure" placeholder="Fecha de regreso">
+                        <label for="destination">Ciudad de Destino</label>
+                        <select id="destination">
+                            <option value="">Selecciona destino</option>
+                            <!-- Se llenará dinámicamente según el tipo de viaje -->
+                        </select>
                     </div>
-    
+            
+                    <!-- Fecha de Ida -->
                     <div class="input-style">
-                        <label for="return">Regreso</label>
-                        <input type="date" id="return" placeholder="Fecha de regreso">
+                        <label for="departure">Fecha de Ida</label>
+                        <input type="date" id="departure">
                     </div>
-    
+            
+                    <!-- Fecha de Retorno -->
+                    <div class="input-style">
+                        <label for="return">Fecha de Retorno</label>
+                        <input type="date" id="return" placeholder="Fecha de regreso" oninput="validateReturnDate()">
+                    </div>
+            
+                    <!-- Cantidad de Pasajeros -->
                     <div class="input-style">
                         <label for="passengers">Pasajeros</label>
                         <input type="number" id="passengers" placeholder="Número de pasajeros" min="1" max="10">
                     </div>
+            
+                    <!-- Viajan Niños -->
+                    <div class="kids">
+                        <input type="checkbox" id="childrenCheck" onclick="toggleChildrenInput()">
+                        <label for="childrenCheck">¿Viajan niños?</label>
+                    </div>
+            
+                    <!-- Cantidad de Niños (se muestra solo si el checkbox está marcado) -->
+                    <div class="input-style" id="childrenAmountContainer" style="display: none;">
+                        <!-- <label for="childrenAmount">Cantidad de niños</label> -->
+                        <input type="number" id="childrenAmount" placeholder="Número de niños" min="1" max="8">
+                    </div>
                 </div>
+                
                 <div class="filters">
                     <div>
                         <span>Filtrar:</span>
                         <span class="tag">Primera clase</span>
                         <span class="tag">Business</span>
-                        <span class="tag">Economy</span>
+                        <span class="tag selected">Economy</span>
                     </div>
-                    <button class="btn">Buscar vuelo</button>
+                    <button class="btn" onclick="searchFlights()" disabled>Buscar vuelo</button>
                 </div>
-            </div>            
+            </div>
+                        
         </div>
     </section>
+
 
     <div class="container">
         <section class="explore">
@@ -231,20 +271,27 @@
            </div>
         </section>
         
-        <section class="articles">
-            <div class="card">
-                <span>Los campos de tulipanes en Holanda</span>
-                <p>Sumérgete en un mar de colores vibrantes con los icónicos tulipanes que cubren el paisaje holandés. Un espectáculo natural que no puedes perderte.</p>
+        <section id="articles-section">
+            <div>
+                <span class="title">Ganas de panorama? revisa nuestros articulos</span>
+                <p>Conoce los ultimos articulos escritos por nuestros viajeros expertos, en ellos podrás informarte y conocer un poco de la experiencia de
+                     la mano de cada viajero que ha recorrido el destino.
+                </p>
             </div>
-            <div class="card">
-                <span>Los majestuosos paisajes de México</span>
-                <p>Explora la diversidad natural de México, desde sus playas paradisíacas hasta sus montañas imponentes. Un destino lleno de maravillas por descubrir.</p>
+            <div class="articles">
+                <div class="card">
+                    <span>Los campos de tulipanes en Holanda</span>
+                    <p>Sumérgete en un mar de colores vibrantes con los icónicos tulipanes que cubren el paisaje holandés. Un espectáculo natural que no puedes perderte.</p>
+                </div>
+                <div class="card">
+                    <span>Los majestuosos paisajes de México</span>
+                    <p>Explora la diversidad natural de México, desde sus playas paradisíacas hasta sus montañas imponentes. Un destino lleno de maravillas por descubrir.</p>
+                </div>
+                <div class="card">
+                    <span>Los impresionantes panoramas de Magallanes</span>
+                    <p>Aventura en la región más austral del mundo, donde los glaciares y la fauna salvaje crean un escenario único e inolvidable.</p>
+                </div>
             </div>
-            <div class="card">
-                <span>Los impresionantes panoramas de Magallanes</span>
-                <p>Aventura en la región más austral del mundo, donde los glaciares y la fauna salvaje crean un escenario único e inolvidable.</p>
-            </div>
-            
         </section>
 
         <table>
@@ -299,6 +346,7 @@
             </div>
 
             <div class="social-media">
+                
             </div>
         </div>
     </footer>
