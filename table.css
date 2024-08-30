@@ -1,3 +1,42 @@
+/* Variables de colores */
+:root {
+    /* Primarios*/
+    --color-primary: #244cb3;
+    --color-primary-light: #798ce6;
+    --color-primary-dark: #00165a;
+  
+    /* Secundarios*/
+    --color-secondary: #aa1141;
+    --color-secondary-light: #e02c65;
+    --color-secondary-dark: #551722;
+  
+    /* Neutral*/
+    --color-white: #ffffff;
+    --color-gray-light: #f7f8ff;
+    --color-gray: #a9aabc;
+    --color-gray-dark: #757687;
+    --color-black: #2c3e50;
+    --color-absoluteblack: #121213;
+  
+    /*Transparencias*/
+    --color-backgroundcolor: #2b2b2b54;
+
+    /* Accion*/
+    --color-success: #28a745;
+    --color-error: #e74c3c;
+    --color-warning: #f39c12;
+    --color-info: #3498db;
+
+    /*Vuelos*/
+    --color-ontime: #189b36;
+    --color-delayed: #7f00d3;
+    --color-cancelled: #d62525;
+    --color-boarding: #2452bd;
+    --color-waiting: #d88b10;
+
+
+  }
+
 table {
     margin-top: 100px !important;
     width: 100%;
@@ -10,12 +49,12 @@ table {
 
 th, td {
     padding: 10px;
-    border: 1px solid #ddd;
+    border: 1px solid var(--color-gray);
 }
 
 th {
-    background-color: #383838;
-    color: white;
+    background-color: var(--color-black);
+    color: var(--color-white);
 }
 
 td {
@@ -25,7 +64,7 @@ td {
 #loader-container {
     width: 100%;
     height: 10px;
-    background-color: #f3f3f3;
+    background-color: var(--color-gray-light);
     margin: 20px auto;
     position: relative;
     border-radius: 5px;
@@ -35,32 +74,41 @@ td {
 #loader-bar {
     width: 0%;
     height: 100%;
-    background-color: #4CAF50;
+    background-color: var(--color-success);
     transition: .2s ease-out;
 }
 
 /* estados  */
 .on-time {
-    color: #1ea94c;
-    font-weight: 500;
+    color: var(--color-ontime);
+    font-weight: 600;
+    background-color: var(--color-gray-light);
 }
 
 .cancelled {
-    color: #dd3f3f;
-    font-weight: 500;
+    color: var(--color-cancelled);
+    font-weight: 600;
+    background-color: var(--color-gray-light);
+
 }
 
 .boarding {
-    color: #3f6cdd;
-    font-weight: 500;
+    color: var(--color-boarding);
+    font-weight: 600;
+    background-color: var(--color-gray-light);
+
 }
 
 .waiting {
-    color: #dd913f;
-    font-weight: 500;
+    color: var(--color-waiting);
+    font-weight: 600;
+    background-color: var(--color-gray-light);
+
 }
 
 .delayed {
-    color: #843fdd;
-    font-weight: 500;
+    color: var(--color-delayed);
+    font-weight: 600;
+    background-color: var(--color-gray-light);
+
 }

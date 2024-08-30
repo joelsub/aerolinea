@@ -57,11 +57,11 @@ function updateTable() {
 
 function getStateClass(estado){
     switch (estado) {
-        case 'A tiempo':
+        case 'A Tiempo':
             return 'on-time';
         case 'Cancelado':
             return 'cancelled';
-        case 'Abordado':
+        case 'Abordando':
             return 'boarding';
         case 'En Espera':
             return 'waiting';

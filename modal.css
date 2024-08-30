@@ -1,4 +1,43 @@
+/* Variables de colores */
+:root {
+    /* Primarios*/
+    --color-primary: #244cb3;
+    --color-primary-light: #798ce6;
+    --color-primary-dark: #00165a;
+  
+    /* Secundarios*/
+    --color-secondary: #aa1141;
+    --color-secondary-light: #e02c65;
+    --color-secondary-dark: #551722;
+  
+    /* Neutral*/
+    --color-white: #ffffff;
+    --color-gray-light: #f7f8ff;
+    --color-gray: #a9aabc;
+    --color-gray-dark: #757687;
+    --color-black: #2c3e50;
+    --color-absoluteblack: #121213;
+  
+    /*Transparencias*/
+    --color-backgroundcolor: #2b2b2b54;
 
+    /* Accion*/
+    --color-success: #28a745;
+    --color-error: #e74c3c;
+    --color-warning: #f39c12;
+    --color-info: #3498db;
+
+    /*Vuelos*/
+    --color-ontime: #189b36;
+    --color-delayed: #7f00d3;
+    --color-cancelled: #d62525;
+    --color-boarding: #2452bd;
+    --color-waiting: #d88b10;
+
+
+  }
+
+  
 .modal {
     display: none;
     position: fixed;
