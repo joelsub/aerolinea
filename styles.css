@@ -124,6 +124,11 @@ td {
     background-color: #ffffff30;
     padding: .5rem 1rem;
     cursor: pointer;
+    transition: .3s ease;
+    cursor: pointer;
+}
+.navbar-access .login-btn:hover{
+    background-color: #000000;
 }
 
 .destiny-form{
