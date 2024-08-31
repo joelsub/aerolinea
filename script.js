@@ -34,24 +34,22 @@ const flights = [
 let currentIndex = 0;
 
 
-// Obtener referencias a los elementos del formulario
 const formFields = document.querySelectorAll('#travelType, #from, #destination, #departure, #return, #passengers');
 const childrenCheck = document.getElementById('childrenCheck');
 const childrenAmount = document.getElementById('childrenAmount');
 const searchButton = document.querySelector('.btn[onclick="searchFlights()"]');
 
-// Función para verificar si todos los campos están completos y válidos
 function validateForm() {
     let isValid = true;
 
-    // Verificar cada campo obligatorio
+    // verifica campo obligatorio
     formFields.forEach(field => {
         if (!field.value) {
             isValid = false;
         }
     });
 
-    // verificar la cantidad de niños
+    // verifica la cantidad de niños
     if (childrenCheck.checked) {
         if (!childrenAmount.value) {
             isValid = false;
@@ -73,12 +71,10 @@ function validateForm() {
         const returnD = new Date(returnDate);
         const timeDifference = returnD - departure;
         const dayDifference = timeDifference / (1000 * 3600 * 24);
-
         if (returnD <= departure) {
             isValid = false;
         }
     }
-
     // habilita boton para buscar vuelos
     searchButton.disabled = !isValid;
 }
@@ -352,4 +348,3 @@ window.onclick = function(event) {
         document.getElementById('contactModal').style.display = 'none';
     }
 }
-

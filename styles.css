@@ -402,3 +402,8 @@ footer div:nth-child(4){
     color: #ffffff !important;
     font-weight: 500;
 }
+
+.modal-content{
+    border-radius: 16px !important;
+    overflow: hidden !important;
+}
