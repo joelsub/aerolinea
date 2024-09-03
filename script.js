@@ -488,6 +488,13 @@ function updateBoardingGateTable() {
     currentIndex = (currentIndex + 5) % boardingGate.length;
   }
 
+
+  /* angelica */
+setInterval(updateBoardingGateTable, 2000);
+updateBoardingGateTable();
+/* angelica */
+
+
 // Tarjetas de los vuelos buscados
 function generateFlightCards() {
     const departureDate = document.getElementById('departure').value;
