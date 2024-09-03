@@ -407,3 +407,16 @@ footer div:nth-child(4){
     border-radius: 16px !important;
     overflow: hidden !important;
 }
+
+/* Angelica */
+.table-title {
+    color: #aaa;
+    font-size: 28px;
+    margin-bottom: 15px;
+  }
+  
+  tr th {
+    background-color: #000000;
+    color: white;
+  }
+  /* Angelica */
