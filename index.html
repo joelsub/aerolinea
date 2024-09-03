@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,10 +10,11 @@
     <link rel="stylesheet" href="table.css">
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
     <section class="hero">
         <div class="navbar">
-           <div class="navbar-items">
+            <div class="navbar-items">
                 <div class="logo">
                     <img src="" alt="">
                     <span>VUELING</span>
@@ -24,11 +26,11 @@
                     <li>Centro de ayuda</li>
                     <li id="contactanos">Contáctanos</li>
                 </ul>
-           </div>
-           <div class="navbar-access">
+            </div>
+            <div class="navbar-access">
                 <span>Vueling Pass</span>
                 <span class="login-btn">Iniciar sesión</span>
-           </div>
+            </div>
         </div>
         <div class="destiny-form">
             <span class="destiny-title">Descubre tu siguiente experiencia de vuelo</span>
@@ -43,7 +45,7 @@
                             <option value="international">Internacional</option>
                         </select>
                     </div>
-            
+
                     <!-- Ciudad de Origen -->
                     <div class="input-style">
                         <label for="from">Ciudad de Origen</label>
@@ -55,7 +57,7 @@
                             <!-- Agrega otras ciudades de Chile con aeropuertos -->
                         </select>
                     </div>
-            
+
                     <!-- Ciudad de Destino -->
                     <div class="input-style">
                         <label for="destination">Ciudad de Destino</label>
@@ -64,38 +66,38 @@
                             <!-- Se llenará dinámicamente según el tipo de viaje -->
                         </select>
                     </div>
-            
+
                     <!-- Fecha de Ida -->
                     <div class="input-style">
                         <label for="departure">Fecha de Ida</label>
                         <input type="date" id="departure">
                     </div>
-            
+
                     <!-- Fecha de Retorno -->
                     <div class="input-style">
                         <label for="return">Fecha de Retorno</label>
                         <input type="date" id="return" placeholder="Fecha de regreso" oninput="validateReturnDate()">
                     </div>
-            
+
                     <!-- Cantidad de Pasajeros -->
                     <div class="input-style">
                         <label for="passengers">Pasajeros</label>
                         <input type="number" id="passengers" placeholder="Número de pasajeros" min="1" max="10">
                     </div>
-            
+
                     <!-- Viajan Niños -->
                     <div class="kids">
                         <input type="checkbox" id="childrenCheck" onclick="toggleChildrenInput()">
                         <label for="childrenCheck">¿Viajan niños?</label>
                     </div>
-            
+
                     <!-- Cantidad de Niños (se muestra solo si el checkbox está marcado) -->
                     <div class="input-style" id="childrenAmountContainer" style="display: none;">
                         <!-- <label for="childrenAmount">Cantidad de niños</label> -->
                         <input type="number" id="childrenAmount" placeholder="Número de niños" min="1" max="8">
                     </div>
                 </div>
-                
+
                 <div class="filters">
                     <div>
                         <span>Filtrar:</span>
@@ -106,7 +108,7 @@
                     <button class="btn" onclick="searchFlights()" disabled>Buscar vuelo</button>
                 </div>
             </div>
-                        
+
         </div>
     </section>
 
@@ -115,9 +117,9 @@
         <section class="explore">
             <div>
                 <span class="title">Explora nuestras ofertas y vuelos low-cost</span>
-            <p>Explora los destinos en oferta, compra ahora y viaja hasta en 3 meses desde la fecha de pago</p>
+                <p>Explora los destinos en oferta, compra ahora y viaja hasta en 3 meses desde la fecha de pago</p>
             </div>
-    
+
             <div class="tags">
                 <div class="tag selected">Asia</div>
                 <div class="tag">Europa</div>
@@ -127,7 +129,7 @@
             </div>
 
             <!-- cards con los destinos promocionales  -->
-           <div class="destinations">
+            <div class="destinations">
                 <div class="destination-card">
                     <img src="./assets/destinations/tokyo.jpeg" alt="">
                     <div class="destination-details">
@@ -268,78 +270,82 @@
                         </div>
                     </div>
                 </div>
-           </div>
+            </div>
         </section>
-        
+
         <section id="articles-section">
             <div>
                 <span class="title">Ganas de panorama? revisa nuestros articulos</span>
-                <p>Conoce los ultimos articulos escritos por nuestros viajeros expertos, en ellos podrás informarte y conocer un poco de la experiencia de
-                     la mano de cada viajero que ha recorrido el destino.
+                <p>Conoce los ultimos articulos escritos por nuestros viajeros expertos, en ellos podrás informarte y
+                    conocer un poco de la experiencia de
+                    la mano de cada viajero que ha recorrido el destino.
                 </p>
             </div>
             <div class="articles">
                 <div class="card">
                     <span>Los campos de tulipanes en Holanda</span>
-                    <p>Sumérgete en un mar de colores vibrantes con los icónicos tulipanes que cubren el paisaje holandés. Un espectáculo natural que no puedes perderte.</p>
+                    <p>Sumérgete en un mar de colores vibrantes con los icónicos tulipanes que cubren el paisaje
+                        holandés. Un espectáculo natural que no puedes perderte.</p>
                 </div>
                 <div class="card">
                     <span>Los majestuosos paisajes de México</span>
-                    <p>Explora la diversidad natural de México, desde sus playas paradisíacas hasta sus montañas imponentes. Un destino lleno de maravillas por descubrir.</p>
+                    <p>Explora la diversidad natural de México, desde sus playas paradisíacas hasta sus montañas
+                        imponentes. Un destino lleno de maravillas por descubrir.</p>
                 </div>
                 <div class="card">
                     <span>Los impresionantes panoramas de Magallanes</span>
-                    <p>Aventura en la región más austral del mundo, donde los glaciares y la fauna salvaje crean un escenario único e inolvidable.</p>
+                    <p>Aventura en la región más austral del mundo, donde los glaciares y la fauna salvaje crean un
+                        escenario único e inolvidable.</p>
                 </div>
             </div>
         </section>
 
-        
 
 
-<section>
-<!-- angelica -->
-<table>
-  <!-- angelica -->
-  <caption class="title">
-    Vuelos
-  </caption>
-  <!-- angelica -->
-  <thead>
-    <tr>
-      <th>Vuelo</th>
-      <th>Destino</th>
-      <th>Hora</th>
-      <th>Estado</th>
-      <th>Puerta</th>
-    </tr>
-  </thead>
-  <tbody id="flight-table-body">
-    <!-- vuelos -->
-  </tbody>
-</table>
 
-<!-- Angelica -->
-<table>
-  <thead>
-    <caption class="title">
-      Zona de embarque
-    </caption>
-    <tr>
-      <th>Puerta</th>
-      <th>Vuelo</th>
-      <th>Destino</th>
-      <th>Hora</th>
-      <th>Estado</th>
-    </tr>
-  </thead>
-  <tbody id="boarding-table-body">
-    <!-- Zona de embarque -->
-  </tbody>
-</table>
-<!-- Angelica -->
-</section>
-<!-- angelica -->
+        <section>
+            <!-- angelica -->
+            <table>
+                <!-- angelica -->
+                <caption class="title">
+                    Vuelos
+                </caption>
+                <!-- angelica -->
+                <thead>
+                    <tr>
+                        <th>Vuelo</th>
+                        <th>Destino</th>
+                        <th>Hora</th>
+                        <th>Estado</th>
+                        <th>Puerta</th>
+                    </tr>
+                </thead>
+                <tbody id="flight-table-body">
+                    <!-- vuelos -->
+                </tbody>
+            </table>
+
+            <!-- Angelica -->
+            <table>
+                <thead>
+                    <caption class="title">
+                        Zona de embarque
+                    </caption>
+                    <tr>
+                        <th>Puerta</th>
+                        <th>Vuelo</th>
+                        <th>Destino</th>
+                        <th>Hora</th>
+                        <th>Estado</th>
+                    </tr>
+                </thead>
+                <tbody id="boarding-table-body">
+                    <!-- Zona de embarque -->
+                </tbody>
+            </table>
+            <!-- Angelica -->
+        </section>
+        <!-- angelica -->
 
 
         <div id="loader-container">
@@ -353,7 +359,9 @@
                 <img src="" alt="">
                 <span>VUELING</span>
             </div>
-            <p>En Vueling estamos comprometidos con llevarte a los destinos más emocionantes alrededor del mundo. hacemos que cada viaje sea una experiencia inolvidable. Nuestro objetivo es ofrecerte comodidad, seguridad y el mejor servicio, desde el momento en que reservas hasta que llegas a tu destino.</p>
+            <p>En Vueling estamos comprometidos con llevarte a los destinos más emocionantes alrededor del mundo.
+                hacemos que cada viaje sea una experiencia inolvidable. Nuestro objetivo es ofrecerte comodidad,
+                seguridad y el mejor servicio, desde el momento en que reservas hasta que llegas a tu destino.</p>
         </div>
 
         <ul>
@@ -380,7 +388,7 @@
             </div>
 
             <div class="social-media">
-                
+
             </div>
         </div>
     </footer>
@@ -417,4 +425,5 @@
 
     <script src="script.js"></script>
 </body>
+
 </html>

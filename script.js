@@ -466,6 +466,28 @@ function openModalWithResults() {
     });
 }
 
+function updateBoardingGateTable() {
+    const tbody = document.getElementById('boarding-table-body');
+    tbody.innerHTML = '';
+    // muestra los primeros 10 vuelos
+    const visibleBoarding = boardingGate.slice(currentIndex, currentIndex + 10);
+  
+    visibleBoarding.forEach((boardingGate) => {
+      const row = document.createElement('tr');
+      Object.values(boardingGate).forEach((value, index) => {
+        const cell = document.createElement('td');
+        if (index === 4) {
+          cell.className = getStateClass(value);
+        }
+        cell.textContent = value;
+        row.appendChild(cell);
+      });
+      tbody.appendChild(row);
+    });
+    // Incrementa el índice
+    currentIndex = (currentIndex + 5) % boardingGate.length;
+  }
+
 // Tarjetas de los vuelos buscados
 function generateFlightCards() {
     const departureDate = document.getElementById('departure').value;
